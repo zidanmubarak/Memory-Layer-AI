@@ -39,4 +39,4 @@ __all__ = [
     "unregister_memory_type_plugin",
 ]
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
