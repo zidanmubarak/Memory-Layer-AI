@@ -10,13 +10,13 @@
 
 ```bash
 # Standard install
-pip install memory-layer-ai
+pip install memory-vault
 
 # With Qdrant support (production)
-pip install "memory-layer-ai[qdrant]"
+pip install "memory-vault[qdrant]"
 
 # With all optional dependencies
-pip install "memory-layer-ai[all]"
+pip install "memory-vault[all]"
 
 # Development install from source
 git clone https://github.com/zidanmubarak/Memory-Layer-AI
@@ -300,7 +300,7 @@ async with MemoryLayer(user_id="alice") as memory:
 For production deployments with multiple users or high query volume:
 
 ```bash
-pip install "memory-layer-ai[qdrant]"
+pip install "memory-vault[qdrant]"
 ```
 
 ```python

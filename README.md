@@ -55,7 +55,7 @@ asyncio.run(main())
 ## Quick Start
 
 ```bash
-pip install "memory-layer-ai[all]"
+pip install "memory-vault[all]"
 ```
 
 ```python

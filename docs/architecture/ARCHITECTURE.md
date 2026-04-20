@@ -206,11 +206,11 @@ Breaking changes require a major version bump and `docs/api/API_SPEC.md` update.
 Debug and admin tooling built with Typer + Rich.
 
 ```bash
-memory-layer memory list --user alice --type semantic
-memory-layer memory search --user alice "PostgreSQL"
-memory-layer memory delete --id <memory_id>
+memory-vault memory list --user alice --type semantic
+memory-vault memory search --user alice "PostgreSQL"
+memory-vault memory delete --id <memory_id>
 memory-layer session stats --user alice
-memory-layer compress --user alice --dry-run
+memory-vault compress --user alice --dry-run
 memory-layer server start --port 8000
 ```
 

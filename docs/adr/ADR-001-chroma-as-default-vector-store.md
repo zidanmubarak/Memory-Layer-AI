@@ -12,7 +12,7 @@ We need a vector database for storing and querying memory embeddings. Options co
 Qdrant, Weaviate, Pinecone, ChromaDB, pgvector (via PostgreSQL).
 
 The primary use case for v0.x is **local/embedded operation** — a developer should be able
-to `pip install memory-layer-ai` and run without spinning up any external services.
+to `pip install memory-vault` and run without spinning up any external services.
 
 ## Decision
 

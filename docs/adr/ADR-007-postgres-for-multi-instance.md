@@ -42,7 +42,7 @@ single-instance use.
 
 ## Consequences
 
-- Adds `asyncpg` and `psycopg2` as optional dependencies (`pip install memory-layer-ai[postgres]`)
+- Adds `asyncpg` and `psycopg2` as optional dependencies (`pip install memory-vault[postgres]`)
 - Alembic migration scripts must be tested against both SQLite and PostgreSQL
 - `StorageLayer` init logic must branch on `ML_METADATA_BACKEND`
 - CI pipeline must include a PostgreSQL service container for integration tests

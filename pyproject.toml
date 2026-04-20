@@ -77,7 +77,7 @@ Repository = "https://github.com/zidanmubarak/Memory-Layer-AI"
 Issues = "https://github.com/zidanmubarak/Memory-Layer-AI/issues"
 
 [project.scripts]
-memory-layer = "memory_layer.cli.main:main"
+memory-vault = "memory_layer.cli.main:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["memory_layer"]

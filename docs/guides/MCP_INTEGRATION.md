@@ -22,10 +22,10 @@ operations available as tools any compatible AI client can call.
 
 ```bash
 # Install Memory Layer AI with MCP support
-pip install "memory-layer-ai[mcp]"
+pip install "memory-vault[mcp]"
 
 # Verify installation
-memory-layer mcp tools
+memory-vault mcp tools
 ```
 
 ---
@@ -34,10 +34,10 @@ memory-layer mcp tools
 
 ```bash
 # Start with default settings (SQLite + ChromaDB, local embeddings)
-memory-layer mcp start
+memory-vault mcp start
 
 # With custom config
-memory-layer mcp start \
+memory-vault mcp start \
   --host 127.0.0.1 \
   --port 8001 \
   
@@ -62,7 +62,7 @@ Create `.claude/mcp.json` in your project root:
 ```json
 {
   "mcpServers": {
-    "memory-layer": {
+    "memory-vault": {
       "url": "http://localhost:8001/mcp/v1",
       "description": "Persistent memory across sessions"
     }
@@ -79,7 +79,7 @@ Add to `~/.claude/mcp.json` to enable memory for all projects:
 ```json
 {
   "mcpServers": {
-    "memory-layer": {
+    "memory-vault": {
       "url": "http://localhost:8001/mcp/v1"
     }
   }
@@ -104,7 +104,7 @@ Add to Cursor settings (`Cursor > Settings > MCP Servers`):
 
 ```json
 {
-  "memory-layer": {
+  "memory-vault": {
     "url": "http://localhost:8001/mcp/v1",
     "enabled": true
   }
@@ -132,7 +132,7 @@ In Windsurf's MCP configuration panel, add:
 
 | Field | Value |
 |---|---|
-| Name | `memory-layer` |
+| Name | `memory-vault` |
 | URL | `http://localhost:8001/mcp/v1` |
 | Transport | `http` |
 
@@ -271,7 +271,7 @@ Create `~/Library/LaunchAgents/ai.memorylayer.mcp.plist`:
   <string>ai.memorylayer.mcp</string>
   <key>ProgramArguments</key>
   <array>
-    <string>/usr/local/bin/memory-layer</string>
+    <string>/usr/local/bin/memory-vault</string>
     <string>mcp</string>
     <string>start</string>
     <string>--daemon</string>
@@ -281,9 +281,9 @@ Create `~/Library/LaunchAgents/ai.memorylayer.mcp.plist`:
   <key>KeepAlive</key>
   <true/>
   <key>StandardOutPath</key>
-  <string>/tmp/memory-layer-mcp.log</string>
+  <string>/tmp/memory-vault-mcp.log</string>
   <key>StandardErrorPath</key>
-  <string>/tmp/memory-layer-mcp.err</string>
+  <string>/tmp/memory-vault-mcp.err</string>
 </dict>
 </plist>
 ```
@@ -294,7 +294,7 @@ launchctl load ~/Library/LaunchAgents/ai.memorylayer.mcp.plist
 
 ### Linux (systemd)
 
-Create `/etc/systemd/user/memory-layer-mcp.service`:
+Create `/etc/systemd/user/memory-vault-mcp.service`:
 
 ```ini
 [Unit]
@@ -302,7 +302,7 @@ Description=Memory Layer AI MCP Server
 After=network.target
 
 [Service]
-ExecStart=/usr/local/bin/memory-layer mcp start --daemon
+ExecStart=/usr/local/bin/memory-vault mcp start --daemon
 Restart=on-failure
 RestartSec=5
 
@@ -311,8 +311,8 @@ WantedBy=default.target
 ```
 
 ```bash
-systemctl --user enable memory-layer-mcp
-systemctl --user start memory-layer-mcp
+systemctl --user enable memory-vault-mcp
+systemctl --user start memory-vault-mcp
 ```
 
 ---
@@ -334,13 +334,13 @@ systemctl --user start memory-layer-mcp
 curl http://localhost:8001/mcp/v1/health
 
 # List registered tools from local CLI
-memory-layer mcp tools
+memory-vault mcp tools
 ```
 
 **Memory not persisting between sessions:**
 - Verify `chroma_path` and `sqlite_path` point to the same directory across restarts.
 - Check disk write permissions on the data directory.
-- Run `memory-layer memory list --user <user_id>` to confirm data exists.
+- Run `memory-vault memory list --user <user_id>` to confirm data exists.
 
 **Slow recall (>500ms):**
 - Disable reranker: `ML_RERANKER_ENABLED=false`

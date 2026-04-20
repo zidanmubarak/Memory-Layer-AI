@@ -83,7 +83,7 @@ sudo useradd -m -s /bin/bash memorylayer
 # Install as service user
 sudo -u memorylayer bash -c "
   python3.11 -m venv /home/memorylayer/venv
-  /home/memorylayer/venv/bin/pip install 'memory-layer-ai[qdrant]'
+  /home/memorylayer/venv/bin/pip install 'memory-vault[qdrant]'
 "
 ```
 
@@ -371,7 +371,7 @@ sqlite3 /var/lib/memory-layer/memory.db ".backup /backups/memory-$(date +%Y%m%d)
 
 ```bash
 #!/bin/bash
-# /usr/local/bin/memory-layer-backup.sh
+# /usr/local/bin/memory-vault-backup.sh
 set -e
 
 BACKUP_DIR="/backups/memory-layer"
@@ -394,7 +394,7 @@ find "$BACKUP_DIR" -mtime +30 -delete
 echo "Backup complete: $DATE"
 ```
 
-Add to cron: `0 2 * * * /usr/local/bin/memory-layer-backup.sh`
+Add to cron: `0 2 * * * /usr/local/bin/memory-vault-backup.sh`
 
 ---
 
